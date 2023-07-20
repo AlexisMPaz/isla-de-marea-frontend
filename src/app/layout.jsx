@@ -1,6 +1,6 @@
 import "../styles/globals.css"
 import { Header } from "../components/Header/Header"
-import { Footer } from "../components/Footer/footer"
+import { Footer } from "../components/Footer/Footer"
 import { UserProvider } from "@/context/UserContext"
 
 
