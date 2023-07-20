@@ -13,8 +13,9 @@ export default function ResetPasswordPage() {
         e.preventDefault();
 
         const token = searchParams.get('token')
+        let url = `${process.env.NEXT_PUBLIC_API_URL}/api/session/password/reset`
 
-        fetch('http://localhost:8080/api/session/password/reset', {
+        fetch(url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

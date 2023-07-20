@@ -1,11 +1,13 @@
 "use client"
 import { createContext, useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const router = useRouter()
 
   useEffect(() => {
     const savedUser = localStorage.getItem('user');

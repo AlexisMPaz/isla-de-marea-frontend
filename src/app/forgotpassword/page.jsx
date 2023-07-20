@@ -8,7 +8,9 @@ export default function ForgotPasswordPage() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        fetch('http://localhost:8080/api/session/password/forgot', {
+        let url = `${process.env.NEXT_PUBLIC_API_URL}/api/session/password/forgot`
+
+        fetch(url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

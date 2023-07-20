@@ -15,7 +15,9 @@ export default function LoginPage() {
         const datosFormulario = new FormData(datForm.current);
         const cliente = Object.fromEntries(datosFormulario);
 
-        fetch('http://localhost:8080/api/session/login', {
+        let url = `${process.env.NEXT_PUBLIC_API_URL}/api/session/login`
+
+        fetch(url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -25,9 +27,9 @@ export default function LoginPage() {
         })
             .then(response => response.json())
             .then(data => {
-                if (data.user) {
-                    updateUser(data.user);
-                    router.push('/products')
+                if (data.status === "success") {
+                    updateUser(data.payload);
+                    router.push('/products');
                 } else {
                     data.message ? setMessage(data.message) : setMessage("Ocurrio un problema con el servidor")
                 }
