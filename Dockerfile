@@ -17,4 +17,4 @@ COPY . .
 RUN npm run build
 
 # Start the Next.js application in production mode
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]
