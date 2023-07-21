@@ -24,6 +24,7 @@ export default function ProductsPage() {
 
   const fetchProducts = async () => {
     try {
+      console.log(process.env.NEXT_PUBLIC_API_URL)
       let url = `${process.env.NEXT_PUBLIC_API_URL}/api/products`;
       if (selectedCategory) {
         url += `?category=${selectedCategory}`;
