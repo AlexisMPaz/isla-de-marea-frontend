@@ -13,6 +13,9 @@ RUN npm install
 # Copy the rest of the application files to the container
 COPY . .
 
+# Set the environment variable NEXT_PUBLIC_API_URL
+ENV NEXT_PUBLIC_API_URL=https://api.example.com
+
 # Build the Next.js application
 RUN npm run build
 
