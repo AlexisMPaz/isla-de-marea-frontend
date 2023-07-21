@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Set the environment variable NEXT_PUBLIC_API_URL
-ENV NEXT_PUBLIC_API_URL=https://backend-isla-de-marea.onrender.com
+ENV NEXT_PUBLIC_API_URL=https://api-isla-de-marea.onrender.com
 
 # Build the Next.js application
 RUN npm run build
