@@ -8,7 +8,7 @@ const ChatPage = () => {
   const [alertMessage, setAlertMessage] = useState(null);
 
   useEffect(() => {
-    const socket = io("http://localhost:8080");
+    const socket = io(`${process.env.NEXT_PUBLIC_API_URL}`);
 
     socket.on("messagesUpdated", (updatedMessages) => {
       setChatMessages(updatedMessages);
@@ -16,11 +16,11 @@ const ChatPage = () => {
 
     const fetchMessages = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/chat', {
+        let url = `${process.env.NEXT_PUBLIC_API_URL}/api/chat`
+        const response = await fetch(url, {
           method: 'GET',
           headers: {
-            'Content-Type': 'application/json',
-            Origin: 'http://localhost:3000',
+            'Content-Type': 'application/json'
           },
           credentials: 'include',
         });
@@ -49,8 +49,7 @@ const ChatPage = () => {
       const response = await fetch(url, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          Origin: 'http://localhost:3000',
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({ message: newChatMessage }),
         credentials: 'include',

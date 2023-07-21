@@ -11,11 +11,12 @@ export default function LogoutPage() {
   useEffect(() => {
     const logout = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/session/logout', {
+        let url = `${process.env.NEXT_PUBLIC_API_URL}/api/session/logout`
+        const response = await fetch(url, {
           method: 'GET',
           headers: {
-            Origin: 'http://localhost:3000',
-          },
+            'Content-Type': 'application/json'
+        },
           credentials: 'include',
         });
 
