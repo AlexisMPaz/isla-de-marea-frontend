@@ -24,8 +24,7 @@ export default function ProductsPage() {
 
   const fetchProducts = async () => {
     try {
-      console.log(process.env.NEXT_PUBLIC_API_URL)
-      console.log(process.env.API_URL)
+      console.log(process.env)
       let url = `https://backend-isla-de-marea.onrender.com/api/products`;
       if (selectedCategory) {
         url += `?category=${selectedCategory}`;
