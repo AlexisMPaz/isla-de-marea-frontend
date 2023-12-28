@@ -34,7 +34,10 @@ export default function ProductsPage() {
       const response = await fetch(url, {
         method: 'GET',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Credentials': 'true',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET,DELETE,PATCH,POST,PUT'
         },
         credentials: 'include',
       });
